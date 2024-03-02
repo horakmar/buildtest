@@ -12,5 +12,5 @@ jobs:
       - name: Configure cmake project
         run: cmake -B ${{github.workspace}}/build ${{github.workspace}}/source
       - name: Build project
-        run: cmake --build ${{github.workspace}}/source
+        run: cmake --build ${{github.workspace}}/build
       - run: echo "This job's status is ${{ job.status }}."
