@@ -9,13 +9,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-      - name: Configure cmake project 
+      - name: Configure cmake project
         run: |
           mkdir build
           cd build
           cmake ../source
       - name: Build project
         run: |
-          cd source
-          cmake --build .
+          cmake --build ../source
       - run: echo "This job's status is ${{ job.status }}."
