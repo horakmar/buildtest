@@ -1,0 +1,16 @@
+name: Cmake build
+run-name: ${{ github.actor }} building Cmake
+on: [push]
+jobs:
+  Cmake-build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checkout ${{ github.ref }} from ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Configure cmake project
+        run: cmake -B ${{github.workspace}}/build ${{github.workspace}}/source
+      - name: Build project
+        run: cmake --build ${{github.workspace}}/build
+      - run: echo "This job's status is ${{ job.status }}."
