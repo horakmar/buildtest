@@ -13,4 +13,9 @@ jobs:
         run: cmake -B ${{github.workspace}}/build ${{github.workspace}}/source
       - name: Build project
         run: cmake --build ${{github.workspace}}/build
+      - uses: actions/upload-artifact@v4
+        name: Upload artifact
+        with:
+          name: sqrt
+          path: ${{github.workspace}}/build/Sqrt
       - run: echo "This job's status is ${{ job.status }}."
